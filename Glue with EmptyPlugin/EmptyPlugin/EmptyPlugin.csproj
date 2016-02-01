@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{539FC66A-F7C4-40AF-AD63-516AEE805E13}</ProjectGuid>
+    <ProjectGuid>{2528FD4D-3FCE-461F-BC38-08DFF4D214E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EmptyPluginProject</RootNamespace>
-    <AssemblyName>EmptyPluginProject</AssemblyName>
+    <RootNamespace>EmptyPlugin</RootNamespace>
+    <AssemblyName>EmptyPlugin</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -82,25 +82,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="WpfDataUi">
-      <HintPath>..\..\Gum\WpfDataUi\bin\Debug\WpfDataUi.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmptyPluginSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>echo "Check if, %25appdata%25\FRBDK\plugins\, exists."
-if not exist "%25appdata%25\FRBDK\plugins\" md "%25appdata%25\FRBDK\plugins\"
-
-echo "Check if, %25appdata%25\FRBDK\plugins\$(ProjectName)\, exists"
-if not exist "%25appdata%25\FRBDK\plugins\$(ProjectName)\" md "%25appdata%25\FRBDK\plugins\$(ProjectName)\"
-
-echo "Copy plugin to %25appdata%25\FRBDK\plugins\$(ProjectName)\"
-copy "$(TargetDir)$(TargetFileName)" "%25appdata%25\FRBDK\plugins\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
