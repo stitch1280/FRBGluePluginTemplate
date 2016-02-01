@@ -31,22 +31,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EditorObjectsXna">
-      <HintPath>..\..\FlatRedBall\FRBDK\FRBDK Supporting Projects\EditorObjects\bin\Debug\EditorObjectsXna.dll</HintPath>
+      <HintPath>..\..\FlatRedBall\FRBDK\FRBDK Supporting Projects\EditorObjects\bin\x86\Debug\EditorObjectsXna.dll</HintPath>
     </Reference>
     <Reference Include="FlatRedBall">
       <HintPath>..\..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\bin\x86\Debug\Xna4.0\FlatRedBall.dll</HintPath>
     </Reference>
     <Reference Include="FlatRedBall.Plugin">
-      <HintPath>..\..\FlatRedBall\FRBDK\Glue\FlatRedBall.Plugin\bin\Debug\FlatRedBall.Plugin.dll</HintPath>
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\FlatRedBall.Plugin\bin\x86\Debug\FlatRedBall.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="FlatRedBall.PropertyGrid">
-      <HintPath>..\..\FlatRedBall\FRBDK\Glue\FlatRedBall.PropertyGrid\bin\Debug\FlatRedBall.PropertyGrid.dll</HintPath>
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\FlatRedBall.PropertyGrid\bin\x86\Debug\FlatRedBall.PropertyGrid.dll</HintPath>
     </Reference>
     <Reference Include="Glue">
       <HintPath>..\..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Glue.exe</HintPath>
     </Reference>
     <Reference Include="GlueSaveClasses">
-      <HintPath>..\..\FlatRedBall\FRBDK\Glue\GlueSaveClasses\bin\Debug\GlueSaveClasses.dll</HintPath>
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\GlueSaveClasses\bin\x86\Debug\GlueSaveClasses.dll</HintPath>
     </Reference>
     <Reference Include="InteractiveInterface">
       <HintPath>..\..\FlatRedBall\FRBDK\GlueView\GlueView\InteractiveInterface\bin\Debug\InteractiveInterface.dll</HintPath>
@@ -87,20 +87,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="EmptyPluginSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>echo "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\"
-if not exist "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\" md "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\"
+    <PostBuildEvent>echo "Check if, %25appdata%25\FRBDK\plugins\, exists."
+if not exist "%25appdata%25\FRBDK\plugins\" md "%25appdata%25\FRBDK\plugins\"
 
-echo "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\"
-if not exist "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\" md "$(Solutiondir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\"
+echo "Check if, %25appdata%25\FRBDK\plugins\$(ProjectName)\, exists"
+if not exist "%25appdata%25\FRBDK\plugins\$(ProjectName)\" md "%25appdata%25\FRBDK\plugins\$(ProjectName)\"
 
-echo "$(TargetDir)$(TargetFileName)" 
-echo "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\$(TargetFileName)"
-copy "$(TargetDir)$(TargetFileName)" "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
+echo "Copy plugin to %25appdata%25\FRBDK\plugins\$(ProjectName)\"
+copy "$(TargetDir)$(TargetFileName)" "%25appdata%25\FRBDK\plugins\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
