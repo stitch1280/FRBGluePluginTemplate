@@ -1,0 +1,6 @@
+[submodule "Gum"]
+	path = Gum
+	url = https://github.com/vchelaru/Gum.git
+[submodule "FlatRedBall"]
+	path = FlatRedBall
+	url = https://github.com/vchelaru/FlatRedBall.git
