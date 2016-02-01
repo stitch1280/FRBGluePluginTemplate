@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{539FC66A-F7C4-40AF-AD63-516AEE805E13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmptyPluginProject</RootNamespace>
+    <AssemblyName>EmptyPluginProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EditorObjectsXna">
+      <HintPath>..\..\FlatRedBall\FRBDK\FRBDK Supporting Projects\EditorObjects\bin\Debug\EditorObjectsXna.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatRedBall">
+      <HintPath>..\..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\bin\x86\Debug\Xna4.0\FlatRedBall.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatRedBall.Plugin">
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\FlatRedBall.Plugin\bin\Debug\FlatRedBall.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatRedBall.PropertyGrid">
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\FlatRedBall.PropertyGrid\bin\Debug\FlatRedBall.PropertyGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Glue">
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Glue.exe</HintPath>
+    </Reference>
+    <Reference Include="GlueSaveClasses">
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\GlueSaveClasses\bin\Debug\GlueSaveClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="InteractiveInterface">
+      <HintPath>..\..\FlatRedBall\FRBDK\GlueView\GlueView\InteractiveInterface\bin\Debug\InteractiveInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\Glue\Libraries\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zlib">
+      <HintPath>..\..\FlatRedBall\FRBDK\Glue\Glue\Libraries\Ionic.Zlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RemotingHelper">
+      <HintPath>..\..\FlatRedBall\FRBDK\GlueView\GlueView\RemotingHelper\bin\Debug\RemotingHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="SelectionInterface">
+      <HintPath>..\..\FlatRedBall\FRBDK\GlueView\GlueView\SelectionInterface\bin\Debug\SelectionInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WpfDataUi">
+      <HintPath>..\..\Gum\WpfDataUi\bin\Debug\WpfDataUi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\"
+if not exist "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\" md "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\"
+
+echo "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\"
+if not exist "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\" md "$(Solutiondir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\"
+
+echo "$(TargetDir)$(TargetFileName)" 
+echo "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\$(TargetFileName)"
+copy "$(TargetDir)$(TargetFileName)" "$(SolutionDir)..\FlatRedBall\FRBDK\Glue\Glue\bin\Debug\Plugins\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
