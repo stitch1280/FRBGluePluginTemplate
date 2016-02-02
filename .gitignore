@@ -1,5 +1,5 @@
-/Glue with EmptyPlugin/EmptyPluginProject/bin
-/Glue with EmptyPlugin/EmptyPluginProject/obj
+bin
+obj
 Debug
 Release
 *.Generated.cs
